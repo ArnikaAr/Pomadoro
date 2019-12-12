@@ -1,16 +1,3 @@
-## GENERAL
-
-This is starting kit that allows to start developing on already configured `Node.js` development server.
-
-It has already build-in structure of application, according to components approach and examples of further development direction.
-
-## NOTE
-
-Main goal of this starting kit is quick starting developing on working server for students, it's not an sample app or best practices, so students can modify, extend configs according to their needs during productivity app iteration
-
-All improvements, that are not mentioned in phase acceptance criteria will be evaluated in the last phase.
-
-## OVERVIEW
 
 `package.json` has all project's dependencies
 
