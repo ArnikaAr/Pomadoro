@@ -1,0 +1,17 @@
+<li class="{{category}} taskItem {{priority}}" id="{{id}}">
+    <div class="task-list__item {{#if done}}done__task{{/if}} {{#if delete}}deleted-task" {{/if}}">
+        <div class="task-list__item-mark"></div>
+        <div class="task-list__item-date"><a href=""><span class="tasks__date-number">{{{data.js data}}}</span></br>{{month.js data}}</a></div>
+        <div class="task-list__item-description">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+        </div>
+        <div class="task-list__item-edit">
+                    <span class="item-edit__item"><button class="item-edit__link icon-arrows-up toDaily"
+                                                     title="add to daily list"></button></span>
+            <span class="item-edit__item"><button class="item-edit__link icon-edit"
+                                             title="edit task"></button></span>
+        </div>
+        <div class="task-list_item-urgency"><a href="#/timer"><span class="icon-tomato" title="go to timer"><p>{{estimation}}</p></span></a></div>
+    </div>
+</li>

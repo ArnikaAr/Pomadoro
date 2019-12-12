@@ -1,0 +1,43 @@
+{{#if work}}
+    <ul class="task-list__main work__item ">
+        {{#each work}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if hobby}}
+    <ul class="task-list__main hobby__item ">
+        {{#each hobby}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if sport}}
+    <ul class="task-list__main sport__item ">
+        {{#each sport}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if edu}}
+    <ul class="task-list__main education__item ">
+        {{#each edu}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{#if other}}
+    <ul class="task-list__main other__item ">
+        {{#each other}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}
+
+{{#if sort}}
+ <ul class="task-list__main">
+        {{#each sort}}
+            {{>task_template.hbs}}
+        {{/each}}
+    </ul>
+{{/if}}

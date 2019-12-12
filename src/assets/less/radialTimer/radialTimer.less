@@ -1,0 +1,53 @@
+div {
+  box-sizing: border-box;
+}
+.wrapper {
+  position: relative;
+  background: @background-color;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 15.5rem;
+  height:  15.5rem;
+}
+
+.pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  background: #8da5b8;
+}
+
+.spinner {
+  z-index: 200000;
+  border-right: none;
+  //animation: rota 5s linear infinite;
+}
+
+.filler {
+  z-index: 100000;
+  border-left: none;
+  //animation: opa 5s steps(1, end) infinite reverse;
+  left: 50%;
+  opactity: 0;
+  display: none;
+}
+
+.mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  z-index: 300000;
+  opacity: 1;
+  background: inherit;
+  //animation: opa 5s steps(1, end) infinite;
+}
+
+@keyframes rota {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes opa {
+  0% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

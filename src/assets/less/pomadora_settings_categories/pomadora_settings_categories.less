@@ -1,0 +1,87 @@
+body{
+  padding: 0;
+}
+.settings__category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0 3rem 0;
+
+  .settings__category-item {
+    width: 20%;
+    border-bottom: 1px solid @font-color;
+    list-style: none;
+    @media (max-width: @desktop){
+      width: 60%;
+    }
+
+    .settings__category-name {
+      margin: 1rem 0;
+      outline: 0;
+      border: none;
+      background: transparent;
+      -moz-appearance: textfield;
+
+      &::placeholder {
+        color: @font-color;
+        opacity: 1;
+        transition: opacity 300ms;
+      }
+
+      &:focus::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  .work {
+    position: relative;
+      &:before {
+        .settings__mark(@work-time, @top: 1.3rem, @left: -2rem);
+      }
+    }
+
+  .education {
+    position: relative;
+
+    &:before {
+      .settings__mark(@short-break, @top: 1.3rem, @left: -2rem);
+    }
+  }
+
+  .hobby {
+    position: relative;
+
+    &:before {
+      .settings__mark(@long-break, @top: 1.3rem, @left:-2rem);
+    }
+  }
+  .sport{
+    position: relative;
+
+    &:before{
+      .settings__mark(@sport, @top: 1.3rem, @left: -2rem)
+    }
+  }
+  .other{
+    position: relative;
+
+    &:before{
+      .settings__mark(@other, @top: 1.3rem, @left: -2rem)
+    }
+  }
+}
+.settings__button{
+  text-align: center;
+  .settings__button{
+    .button-style(@short-break);
+    &:hover{
+      .button-style(@go-to-task-hover);
+    }
+    &:active{
+      .button-style(@go-to-task-active);
+    }
+  }
+}

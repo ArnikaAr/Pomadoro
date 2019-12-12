@@ -1,0 +1,45 @@
+.add-task {
+  //display none page add first tssk
+  display: none;
+
+}
+.main {
+  margin: 7.875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__img {
+  width: 15%;
+}
+
+.main__title {
+  white-space: pre-line;
+  text-align: center;
+}
+
+.task-added {
+  .main {
+    margin: 1rem;
+
+    .main__title {
+      width: 50%;
+      margin: 0;
+    }
+  }
+}
+
+.icon-arrow_circle {
+  font-size: 60px;
+
+  &:hover {
+    color: @blue-hover;
+  }
+
+  &:active {
+    color: @main-font-color;
+  }
+}
+

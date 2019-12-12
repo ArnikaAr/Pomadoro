@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: reports/report_model.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: reports/report_model.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {pomadoroDatabase} from "../../database";
+import eventBus from '../../eventBus'
+
+/**
+ * Represents a Report Model.
+ * @class
+ */
+export class ReportModel {
+    /**
+     * construct a Report Model.
+     * @constructor
+     */
+    constructor() {
+        this.weekMiliseconds = 604800000;
+        this.monthMiliseconds = 2592000000;
+    }
+
+    /**
+     * get done tasks from the fireBase and post event 'done tasks'.
+     * @method
+     */
+    getDoneTasks() {
+        pomadoroDatabase.getData('tasks')
+            .then((data) => {
+                let doneTask = data.filter(item => {
+                    return item.done === true;
+                });
+                eventBus.post('doneTask', doneTask);
+            })
+    }
+
+    /**
+     * sorts tasks by type .
+     * @method
+     * @param {array} tasks - tasks for reports
+     *  @param {string} type - type by which sorting will be performed
+     * @returns {result}  - array sorted by urgent
+
+     */
+    filterType(tasks, type) {
+        let urgentArr = {};
+        if (type === 'tasks') {
+            for (let i in tasks) {
+                const task = tasks[i];
+                const day = {
+                    middle: 0,
+                    low: 0,
+                    urgent: 0,
+                    high: 0,
+                    failed: 0
+                };
+                for (let i in task) {
+                    if (task[i].faild === true) {
+                        day.failed += 1;
+                    } else if (task[i].priority === 'urgent') {
+                        day.urgent += 1;
+                    } else if (task[i].priority === 'middle') {
+                        day.middle += 1;
+                    } else if (task[i].priority === 'hight') {
+                        day.high += 1;
+                    } else if (task[i].priority === 'low') {
+                        day.low += 1;
+                    }
+                }
+                urgentArr[this.createDate(tasks[i][0].completeDate.toDate())] = day;
+            }
+        } else if (type === 'pomodoros') {
+            for (let i in tasks) {
+                const task = tasks[i];
+                const day = {
+                    middle: 0,
+                    low: 0,
+                    urgent: 0,
+                    high: 0,
+                    failed: 0
+                };
+                for (let i in task) {
+                    if (task[i].faild === true) {
+                        day.failed += task[i].estimation;
+                    } else if (task[i].priority === 'urgent') {
+                        day.urgent += task[i].estimation;
+                    } else if (task[i].priority === 'middle') {
+                        day.middle += task[i].estimation;
+                    } else if (task[i].priority === 'hight') {
+                        day.high += task[i].estimation;
+                    } else if (task[i].priority === 'low') {
+                        day.low += task[i].estimation;
+                    }
+                }
+                urgentArr[this.createDate(tasks[i][0].completeDate.toDate())] = day;
+            }
+        }
+        return urgentArr;
+    }
+
+    /**
+     * sorts tasks by period .
+     * @method
+     * @param {array} tasks - tasks for reports
+     *  @param {string} period - period by which sorting will be performed
+     * @returns {result}  - array sorted by period
+     */
+    filterPeriod(tasks, period) {
+        const todayDate = new Date();
+        const filteredPeriod = Array.from(tasks).filter(elem => {
+            const completedDate = elem.completeDate.toDate();
+            if (period === 'day') {
+                if (completedDate.setHours(0, 0, 0, 0) === todayDate.setHours(0, 0, 0, 0)) {
+                    return elem;
+                }
+            } else if (period === 'month') {
+                if (completedDate.getTime() >= todayDate.getTime() - this.monthMiliseconds) {
+                    return elem;
+                }
+            } else if (period === 'week') {
+                if (completedDate >= todayDate.getTime() - this.weekMiliseconds) {
+                    return elem;
+                }
+            }
+        });
+        const result = filteredPeriod.reduce((accumulator, curentValue) => {
+            accumulator[this.createDate(curentValue.completeDate.toDate())] = accumulator[this.createDate(curentValue.completeDate.toDate())] || [];
+            accumulator[this.createDate(curentValue.completeDate.toDate())].push(curentValue);
+            return accumulator;
+        }, {});
+        return result;
+    }
+
+    /**
+     * generate array for highchair's .
+     * @method
+     * @param {string} period - period by which sorting will be performed
+     * @param {array} reportArr - tasks for series
+     * @returns {result}  - array for charts
+     */
+
+    generateSeries(period, reportArr) {
+        let series = [
+            {
+                name: 'Urgent',
+                data: [],
+                stack: 'success',
+                color: '#F75C4C',
+            },
+            {
+                name: 'High',
+                data: [],
+                stack: 'success',
+                color: '#FFA841',
+            },
+            {
+                name: 'Middle',
+                data: [],
+                stack: 'success',
+                color: '#FDDC43',
+            },
+            {
+                name: 'Low',
+                data: [],
+                stack: 'success',
+                color: '#1ABC9C',
+            },
+            {
+                name: 'Failed',
+                data: [],
+                stack: 'failed',
+                color: '#C8C8C8',
+            }
+        ];
+        if (period === 'day') {
+            let urgent = [0, 0, 0, 0, 0];
+            let high = [0, 0, 0, 0, 0];
+            let middle = [0, 0, 0, 0, 0];
+            let low = [0, 0, 0, 0, 0];
+            let faild = [0, 0, 0, 0, 0];
+            for (let day in reportArr) {
+                const tasks = reportArr[day];
+                urgent[0] += tasks.urgent;
+                high[1] += tasks.high;
+                middle[2] += tasks.middle;
+                low[3] += tasks.low;
+                faild[4] += tasks.faild;
+            }
+            series[0].data = urgent;
+            series[1].data = high;
+            series[2].data = middle;
+            series[3].data = low;
+            series[4].data = faild;
+        } else if (period === 'week') {
+            let urgent = [0, 0, 0, 0, 0, 0, 0];
+            let high = [0, 0, 0, 0, 0, 0, 0];
+            let middle = [0, 0, 0, 0, 0, 0, 0];
+            let low = [0, 0, 0, 0, 0, 0, 0];
+            let failed = [0, 0, 0, 0, 0, 0, 0];
+            let allWeekDays = this.createDateArrOfWeek();
+            for (let i in allWeekDays) {
+                const day = allWeekDays[i];
+                const today = new Date();
+                if (reportArr.hasOwnProperty(day)) {
+                    const timeDiff = Math.abs(today.getTime() - new Date(day).getTime());
+                    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    let currentObj = reportArr[day];
+                    urgent[7 - diffDays] += currentObj.urgent;
+                    high[7 - diffDays] += currentObj.high;
+                    middle[7 - diffDays] += currentObj.middle;
+                    low[7 - diffDays] += currentObj.low;
+                    failed[7 - diffDays] += currentObj.failed;
+                }
+            }
+            series[0].data = urgent;
+            series[1].data = high;
+            series[2].data = middle;
+            series[3].data = low;
+            series[4].data = failed;
+        } else if (period === 'month') {
+            series = [
+                {
+                    name: 'Urgent',
+                    data: [],
+                    color: '#F75C4C',
+                },
+                {
+                    name: 'High',
+                    data: [],
+                    color: '#FFA841',
+                },
+                {
+                    name: 'Middle',
+                    data: [],
+                    color: '#FDDC43',
+                },
+                {
+                    name: 'Low',
+                    data: [],
+                    color: '#1ABC9C',
+                },
+                {
+                    name: 'Failed',
+                    data: [],
+                    color: '#C8C8C8',
+                }];
+            let urgent = Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0);
+            let high = Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0);
+            let middle = Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0);
+            let low = Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0);
+            let failed = Array.apply(null, Array(30)).map(Number.prototype.valueOf, 0);
+            let allMonthDay = this.createDateArrOfMonth();
+            for (let i in allMonthDay) {
+                const day = allMonthDay[i];
+                const today = new Date();
+                if (reportArr.hasOwnProperty(day)) {
+                    const timeDiff = Math.abs(today.getTime() - new Date(day).getTime());
+                    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    let currentObj = reportArr[day];
+                    urgent[30 - diffDays] += currentObj.urgent;
+                    high[30 - diffDays] += currentObj.high;
+                    middle[30 - diffDays] += currentObj.middle;
+                    low[30 - diffDays] += currentObj.low;
+                    failed[30 - diffDays] += currentObj.failed;
+                }
+            }
+            series[0].data = urgent;
+            series[1].data = high;
+            series[2].data = middle;
+            series[3].data = low;
+            series[4].data = failed;
+
+        }
+        return series;
+    }
+    /**
+     * create Date array Of Week .
+     * @method
+     * @returns {model}  - array with date of week
+     */
+
+    createDateArrOfWeek() {
+        let model = [];
+        for (let i = 0; i &lt; 7; i++) {
+            let date = new Date();
+            date.setDate(date.getDate() - i);
+            let modelDate = date.toLocaleDateString().split('/').reverse();
+            let temp = modelDate[1];
+            modelDate[1] = modelDate [2];
+            modelDate[2] = temp;
+            model.push(modelDate.join('-'));
+        }
+        return model;
+    }
+    /**
+     * create Date array Of month .
+     * @method
+     * @returns {model}  - array with date of month
+     */
+    createDateArrOfMonth() {
+        let model = [];
+        for (let i = 0; i &lt; 30; i++) {
+            let date = new Date();
+            date.setDate(date.getDate() - i);
+            const modelDate = this.createDate(date);
+            model.push(modelDate);
+        }
+        return model;
+    }
+    /**
+     * format date for reports .
+     * @method
+     * @param {Date} date - date for format
+     * @returns {formatDate}  - date in right format
+     */
+    createDate(date) {
+        let curDate = date.toLocaleDateString().split('/').reverse();
+        let temp = curDate[1];
+        curDate[1] = curDate [2];
+        curDate[2] = temp;
+        const formatDate = curDate.join('-');
+        return formatDate;
+    }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AddFirstTaskView.html">AddFirstTaskView</a></li><li><a href="FirstPage_view.html">FirstPage_view</a></li><li><a href="HeaderView.html">HeaderView</a></li><li><a href="ReportController.html">ReportController</a></li><li><a href="ReportModel.html">ReportModel</a></li><li><a href="ReportView.html">ReportView</a></li><li><a href="SettingsCategory.html">SettingsCategory</a></li><li><a href="TaskListController.html">TaskListController</a></li><li><a href="TaskListModel.html">TaskListModel</a></li><li><a href="TaskListView.html">TaskListView</a></li><li><a href="TimerController.html">TimerController</a></li><li><a href="TimerModel.html">TimerModel</a></li><li><a href="TimerView.html">TimerView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#changeSettings">changeSettings</a></li><li><a href="global.html#CounterItem">CounterItem</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#inputChangeValue">inputChangeValue</a></li><li><a href="global.html#renderHighcharts">renderHighcharts</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 08 2019 12:06:53 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

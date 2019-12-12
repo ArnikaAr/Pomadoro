@@ -1,0 +1,219 @@
+body {
+  padding: 0;
+}
+
+.head {
+  .task__name {
+    color: @main-font-color;
+    width: 100%;
+    padding: 0;
+  }
+
+  h1 {
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.51;
+    letter-spacing: normal;
+    @media (max-width: @tablet) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.51;
+    letter-spacing: normal;
+    @media (max-width: @tablet) {
+      font-size: 30px;
+    }
+  }
+}
+
+.head__tomatos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+
+  img {
+    width: 25px;
+    height: 23px;
+    margin-right: 0.75rem;
+  }
+
+  span:hover {
+    color: @blue-hover;
+  }
+
+  .icon-add {
+    visibility: visible !important;
+  }
+}
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: @tablet) {
+    justify-content: center;
+  }
+}
+.timer__content{
+  width: 12.5rem;
+  height:  12.5rem;
+  position: absolute;
+  z-index: 1500000000000;
+  background-color: @background-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 1.42rem;
+  bottom: 0rem;
+}
+.timer-arrow__right,
+.timer-arrow__left {
+  text-decoration: none;
+  margin-top: -5rem;
+  color: @font-color;
+  cursor: pointer;
+  font-size: 40px;
+  transition: 1s;
+
+  &:hover {
+    color: @blue-hover;
+  }
+
+}
+
+
+.timer-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:0 20%;
+  @media (max-width: @tablet) {
+    margin: 0 20%
+  }
+
+}
+
+.timer-time__item {
+  box-shadow: 0px 5px 83px 17px rgba(21, 43, 59, 0.25);
+  border-radius: 50%;
+  text-align: center;
+  font-family: PT Sans;
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.58;
+  letter-spacing: normal;
+  color: @main-font-color;
+  padding: 10px;
+
+  p {
+    margin-top: 45%;
+  }
+}
+
+.timer-time__btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .timer-time__btn-fail {
+    .button-style(@remove);
+
+    &:hover {
+      background-color: @remove-hover;
+    }
+
+    &:focus {
+      background-color: @remove-focus;
+    }
+  }
+
+  .timer-time__btn-item {
+    .button-style(@save);
+
+    &:hover {
+      background-color: @save-hover;
+    }
+
+    &:focus {
+      background-color: @save-active;
+    }
+
+  }
+
+
+  }
+  .timer-time__btn-start {
+    .button-style(@go-to-task);
+
+    &:hover {
+      background-color: @go-to-task-hover;
+    }
+
+    &:focus {
+      background-color: @go-to-task-active;
+    }
+
+  }
+  .timer-time__btn-finish{
+    .button-style(@save);
+
+    &:hover {
+      background-color: @save-hover;
+    }
+
+    &:focus {
+      background-color: @save-active;
+    }
+
+  }
+
+.timer-category__work {
+  border: 10px solid @work;
+}
+
+.timer-category__education {
+  border: 10px solid @edu;
+
+}
+
+.timer-category__hobby {
+  border: 10px solid @hobby;
+
+}
+
+.timer-category__sport {
+  border: 10px solid @sport;
+
+}
+
+.timer-category__other{
+  border: 10px solid @other;
+}
+.timer__content{
+  display: flex;
+  flex-direction: column;
+}
+
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/your_cycle/your_cycle.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/your_cycle/your_cycle.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @description function render cycle for settings
+ * @param {object} data - object with settings
+ */
+function renderCycle(data){
+    let cycle = document.querySelector('.cycle__item');
+    let postCycle = document.querySelector('.post__cycle');
+    let preCycle = document.querySelector('.pre__cycle');
+
+    let cycleFragment = document.createDocumentFragment();
+    let cycleFragment2 = document.createDocumentFragment();
+    let timeMarkBlock = document.createDocumentFragment();
+    let cycleMarkBlock = document.createDocumentFragment();
+
+
+    let workIteration = data.workIteration;
+
+    while (cycle.children.length){
+        cycle.removeChild(cycle.lastChild);
+    }
+
+
+    let workLine = [];
+    for (let i = 0; i &lt; workIteration; i++){
+        workLine.push(data.workTime, data.shortBreak);
+    }
+
+    renderTimeMark(workLine);
+    renderCycleMark();
+
+    for (let i = 0; i &lt;= workLine.length; i++){
+        let div = document.createElement('div');
+
+        if (i % 2 === 0){
+            createWorkLine('workTime', data.workTime, div);
+        } else if (i % 2 !== 0){
+            createWorkLine('shortBreak', data.shortBreak, div);
+        }
+        if (i === workLine.length - 1){
+            createWorkLine('longBreak', data.longBreak, div);
+        }
+
+
+        cycleFragment.appendChild(div);
+    }
+
+
+    /**
+     * @description render a workline of cycle
+     * @param {string}className
+     * @param {number}time
+     * @param {object} div
+     */
+    function createWorkLine(className, time, div){
+        div.classList.add(className);
+        let widthLine = (workIteration * 2 * time) / workIteration - 1;
+        div.style.width = '' + widthLine + '%';
+    }
+
+    /**
+     * @description function render time Mark on cycle
+     */
+    function renderTimeMark(){
+        // eslint-disable-next-line max-len
+        let allTime = ((data.workTime * data.workIteration + data.shortBreak * (data.workIteration - 1) + data.longBreak) * 2) - data.longBreak;
+        let colOfMark = (allTime / 30).toFixed(0);
+        while (postCycle.children.length){
+            postCycle.removeChild(postCycle.lastChild);
+        }
+        let time = +30;
+        for (let i = 0; i &lt; colOfMark - 1; i++){
+            let timeMark = document.createElement('div');
+            timeMark.classList.add('timeMark');
+            timeMark.style.width = '' + cycle.offsetWidth / colOfMark + 'px';
+            timeMark.textContent = getTimeFromMins(time);
+            time = time + 30;
+            timeMarkBlock.append(timeMark);
+        }
+
+        postCycle.appendChild(timeMarkBlock);
+    }
+
+    /**
+     * @description return time in hours
+     * @param mins
+     * @returns {string}
+     */
+    function getTimeFromMins(mins){
+        if (mins &lt;= 30) return mins + 'm';
+        let hours = Math.floor(mins / 60);
+        let minutes = mins % 60;
+        return hours + 'h ' + minutes + 'm';
+    }
+
+    /**
+     * function render cycle mark
+     */
+    function renderCycleMark(){
+        // eslint-disable-next-line max-len
+        let allTime = ((data.workTime * data.workIteration + data.shortBreak * (data.workIteration - 1) + data.longBreak) * 2) - data.longBreak;
+        // eslint-disable-next-line max-len
+        let firstCycle = data.workTime * data.workIteration + data.shortBreak * (data.workIteration - 1) + data.longBreak;
+        while (preCycle.children.length){
+            preCycle.removeChild(preCycle.lastChild);
+        }
+        for (let i = 0; i &lt; 3; i++){
+            let cycleMark = document.createElement('div');
+            cycleMark.classList.add('cycleMark');
+            if (i === 0){
+                cycleMark.textContent = '0 m';
+                cycleMark.style.width = '100px';
+            } else if (i === 1){
+                let cycleTime = getTimeFromMins(firstCycle);
+                let width = ((cycle.offsetWidth * firstCycle) / allTime) - 100;
+                cycleMark.style.marginLeft = '' + width + 'px';
+                cycleMark.style.width = '400px';
+                cycleMark.textContent = 'First cycle: ' + cycleTime + '';
+            } else {
+                cycleTime = getTimeFromMins(allTime);
+                cycleMark.style.width = '100%';
+                cycleMark.textContent = '' + cycleTime + '';
+            }
+            cycleMarkBlock.appendChild(cycleMark);
+        }
+        preCycle.appendChild(cycleMarkBlock);
+    }
+
+    cycleFragment2 = cycleFragment.cloneNode(true);
+    cycleFragment2.firstChild.remove();
+    cycleFragment2.lastChild.remove();
+    cycleFragment2.lastChild.remove();
+    cycle.appendChild(cycleFragment);
+    cycle.appendChild(cycleFragment2);
+}
+
+
+module.exports = renderCycle;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="addFirstTaskPage.html">addFirstTaskPage</a></li><li><a href="AddFirstTaskView.html">AddFirstTaskView</a></li><li><a href="FirstPage.html">FirstPage</a></li><li><a href="FirstPage_view.html">FirstPage_view</a></li><li><a href="HeaderView.html">HeaderView</a></li><li><a href="Report.html">Report</a></li><li><a href="ReportController.html">ReportController</a></li><li><a href="ReportModel.html">ReportModel</a></li><li><a href="ReportView.html">ReportView</a></li><li><a href="Setting.html">Setting</a></li><li><a href="SettingsCategory.html">SettingsCategory</a></li><li><a href="TaskListController.html">TaskListController</a></li><li><a href="TaskListModel.html">TaskListModel</a></li><li><a href="TaskListPage.html">TaskListPage</a></li><li><a href="TaskListView.html">TaskListView</a></li><li><a href="TimerController.html">TimerController</a></li><li><a href="TimerModel.html">TimerModel</a></li><li><a href="TimerPage.html">TimerPage</a></li><li><a href="TimerView.html">TimerView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#changeSettings">changeSettings</a></li><li><a href="global.html#CounterItem">CounterItem</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#inputChangeValue">inputChangeValue</a></li><li><a href="global.html#renderCycle">renderCycle</a></li><li><a href="global.html#renderHighcharts">renderHighcharts</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Fri Nov 08 2019 13:54:15 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

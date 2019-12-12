@@ -1,0 +1,45 @@
+
+    <div class="header__wrapper">
+        <div class="header__logo">
+            <a href="#/tasklist" class="hrader__logo-link" title="link to main page"><img src="../images/Logo.svg"
+                                                                                 alt=""></a>
+        </div>
+        <div class="header__menu">
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    {{#if add}}
+                    <li class="header__navigation-item" data-title="add"><a
+                            class="header__navigation-link icon-add"
+                            href="#"
+                            title="add task"></a>
+                    </li>
+                    {{/if}}
+                    {{#if delete}}
+                        <li class="header__navigation-item delete" data-title="delete"><button
+                                class="header__navigation-link icon-trash {{#if active_delete}}active-tab{{/if}}"
+                                title="delete task"></button>
+                                <span class="number"></span>
+                        </li>
+                    {{/if}}
+                    {{#if task}}
+                    <li class="header__navigation-item" data-title="go to task list"><a
+                            class="header__navigation-link icon-list {{#if active_task}}active-tab{{/if}}" href="#/taskList"
+                            title="go to task list"> </a>
+                    </li>
+                    {{/if}}
+                    {{#if statistic}}
+                    <li class="header__navigation-item" data-title=" go to statistic page"><a
+                            class="header__navigation-link icon-statistics {{#if active_report}}active-tab{{/if}}"
+                            href="#/report/month/pomodoros" title="go to statistic page"></a>
+                    </li>
+                    {{/if}}
+                    {{#if settings}}
+                    <li class="header__navigation-item" data-title="go to settings page"><a
+                            class="header__navigation-link icon-settings {{#if active_settings}}active-tab{{/if}}" href="#/setting"
+                            title="go to settings page"></a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
+    </div>

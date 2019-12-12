@@ -1,0 +1,166 @@
+{{#if edit}}
+<div class="task__modal" id="open-modal">
+    <div class="task__modal-item">
+        <div class="task__modal-nav">
+            <button class="icon-trash" title="delete task"></button>
+            <button class="icon-close close" title="close window"></button>
+            <button class="icon-check" id='{{id}}' title="edit task"></button>
+        </div>
+        <h2>edit task</h2>
+       <ul class="task__modal-main">
+            <li class="modal-main__title">
+                <p>title</p>
+                <lable>
+                    <input type="text" class="title__input" placeholder="add title here">
+                </lable>
+            </li>
+            <li class="modal-main__desc">
+                <p> description </p>
+                <lable>
+                    <input type="text" class="description__value" placeholder="add description here">
+                </lable>
+            </li>
+            <li class="main-menu__category">
+                <p>Category</p>
+                <div class="modal__input-radio">
+                    <label class="modal__input-radio-item work"><input name="radio-category" type="radio" value="work"
+                            checked><span></span>Work</label>
+                    <label class="modal__input-radio-item education"><input name="radio-category" type="radio"
+                            value="education"><span></span>Education</label>
+                    <label class="modal__input-radio-item hobby"><input name="radio-category" type="radio"
+                            value="hobby"><span></span>Hobby</label>
+                    <label class="modal__input-radio-item sport"><input name="radio-category" type="radio"
+                            value="sport"><span></span>Sport</label>
+                    <label class="modal__input-radio-item other"><input name="radio-category" type="radio"
+                            value="other"><span></span>Other</label>
+                </div>
+            </li>
+            <li class="modal-main__deadline">
+                <p>Deadline</p>
+                <lable>
+                    <input type="text" class="deadline__input">
+                </lable>
+            </li>
+            <li class="modal-main__estimation">
+                <p>ESTIMATION</p>
+                <fieldset>
+                    <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
+                        title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4"
+                        title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
+                        title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
+                        title="Kinda bad - 2 stars"></label>
+                    <input checked type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+                        title="Sucks big time - 1 star"></label>
+                </fieldset>
+            </li>
+            <li class="modal-main__priority">
+                <p>Priority</p>
+                <div class="modal__input-radio">
+                    <label class="modal__input-radio-item urgent"><input checked name="radio-priority" type="radio"
+                            value="urgent"><span></span>Urgent</label>
+                    <label class="modal__input-radio-item high"><input name="radio-priority" value="hight"
+                            type="radio"><span></span>High</label>
+                    <label class="modal__input-radio-item middle"><input name="radio-priority" value="middle"
+                            type="radio"><span></span>Middle</label>
+                    <label class="modal__input-radio-item low"><input name="radio-priority" value="low"
+                            type="radio"><span></span>Low</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{{/if}}
+{{#if add}}
+<div class="task__modal" id="add__open-modal">
+    <div class="task__modal-item">
+        <div class="task__modal-nav">
+            <button class="icon-close close" title="close modal"></button>
+            <button class="icon-check add" title="add new tasks"></button>
+        </div>
+        <h2>add task</h2>
+        <ul class="task__modal-main">
+            <li class="modal-main__title">
+                <p>title</p>
+                <lable>
+                    <input type="text" class="title__input" placeholder="add title here">
+                </lable>
+            </li>
+            <li class="modal-main__desc">
+                <p> description </p>
+                <lable>
+                    <input type="text" class="description__value" placeholder="add description here">
+                </lable>
+            </li>
+            <li class="main-menu__category">
+                <p>Category</p>
+                <div class="modal__input-radio">
+                    <label class="modal__input-radio-item work"><input name="radio-category" type="radio" value="work"
+                            checked><span></span>Work</label>
+                    <label class="modal__input-radio-item education"><input name="radio-category" type="radio"
+                            value="education"><span></span>Education</label>
+                    <label class="modal__input-radio-item hobby"><input name="radio-category" type="radio"
+                            value="hobby"><span></span>Hobby</label>
+                    <label class="modal__input-radio-item sport"><input name="radio-category" type="radio"
+                            value="sport"><span></span>Sport</label>
+                    <label class="modal__input-radio-item other"><input name="radio-category" type="radio"
+                            value="other"><span></span>Other</label>
+                </div>
+            </li>
+            <li class="modal-main__deadline">
+                <p>Deadline</p>
+                <lable>
+                    <input type="text" class="deadline__input">
+                </lable>
+            </li>
+            <li class="modal-main__estimation">
+                <p>ESTIMATION</p>
+                <fieldset>
+                    <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
+                        title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4"
+                        title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
+                        title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
+                        title="Kinda bad - 2 stars"></label>
+                    <input checked type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+                        title="Sucks big time - 1 star"></label>
+                </fieldset>
+            </li>
+            <li class="modal-main__priority">
+                <p>Priority</p>
+                <div class="modal__input-radio">
+                    <label class="modal__input-radio-item urgent"><input checked name="radio-priority" type="radio"
+                            value="urgent"><span></span>Urgent</label>
+                    <label class="modal__input-radio-item high"><input name="radio-priority" value="high"
+                            type="radio"><span></span>High</label>
+                    <label class="modal__input-radio-item middle"><input name="radio-priority" value="middle"
+                            type="radio"><span></span>Middle</label>
+                    <label class="modal__input-radio-item low"><input name="radio-priority" value="low"
+                            type="radio"><span></span>Low</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{{/if}}
+{{#if remove}}
+<div class="task__modal" id="open-reset-modal">
+    <div class="task__modal-item">
+        <div class="modal-nav">
+            <button class="icon-close close" title="close window"></button>
+        </div>
+        <div class="modal__title">
+            <h2>remove task</h2>
+            <p>Are you sure you want to remove selected task(s)?</p>
+        </div>
+        <div class="modal__buttons">
+            <button class="modal__button-cancel close" >Cancel</button>
+            <button class="modal__button-remove">remove</button>
+        </div>
+    </div>
+</div>
+{{/if}}

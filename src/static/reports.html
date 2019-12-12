@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Productivity app</title>
+</head>
+
+<body>
+<header_view>
+    <div class="header_view">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <a href="#" class="hrader__logo-link" title="link to main page"><img src="../images/Logo.svg"
+                                                                                     alt=""></a>
+            </div>
+            <div class="header__menu">
+                <nav class="header__navigation">
+                    <ul class="header__navigation-list">
+                        <li class="header__navigation-item" data-title="link to global task list">
+                            <a href="#" class="icon-list header__navigation-link active-tab"
+                               title="link to global task list"></a>
+                        </li>
+                        <li class="header__navigation-item" data-title="link to statistic page">
+                            <a href="#" class="icon-statistics header__navigation-link"
+                               title="link to statistic page"></a>
+                        </li>
+                        <li class="header__navigation-item" data-title="link to settings page">
+                            <a href="#" class="icon-settings header__navigation-link" title="link to settings page"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header_view>
+<section class="day-report">
+    <div class="head">
+        <div class=" title">
+            <h1>Report</h1>
+        </div>
+        <div class="tab__main">
+            <nav class="tab__nav">
+                <ul class="tab__list">
+                    <li class="tab__item "><a class="tab__link active-tab" href="#"> Day</a></li>
+                    <li class="tab__item"><a class="tab__link" href="#">Week </a></li>
+                    <li class="tab__item"><a class="tab__link" href="#"> Month</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="graph">
+        <a class="graph-arrow__left tip ">
+                <span class="icon-arrow-left" title="Go to Global Lis">
+            </span>
+        </a>
+        <div class="graph-info">
+            <div class="graph-info__img"><img src="../images/Graph2.png" alt=""></div>
+
+            <ul class="graph-info__descryption">
+                <li>
+                    <div class="graph-info__descryption-red"></div>
+                    Urgent
+                </li>
+                <li>
+                    <div class="graph-info__descryption-orange"></div>
+                    High
+                </li>
+                <li>
+                    <div class="graph-info__descryption-yellow"></div>
+                    Middle
+                </li>
+                <li>
+                    <div class="graph-info__descryption-green"></div>
+                    Low
+                </li>
+                <li>
+                    <div class="graph-info__descryption-gray"></div>
+                    Failed
+                </li>
+            </ul>
+
+            <div class="graph-info__display">
+                <ul class="graph-info__display-list">
+                    <li class="graph-info__display-item"><a class="graph-info__display-link active-tab" href="#">Pomodoros</a>
+                    </li>
+                    <li class="graph-info__display-item"><a class="graph-info__display-link" href="#">Tasks</a></li>
+                </ul>
+            </div>
+        </div>
+        <a class="graph-arrow__right">
+            <span class="icon-arrow-right"></span>
+        </a>
+    </div>
+</section>
+</body>
+
+</html>

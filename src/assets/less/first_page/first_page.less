@@ -1,0 +1,48 @@
+body{
+  padding: 0;
+}
+.first-page {
+  .title {
+    width: 100%;
+    padding: 0;
+  }
+}
+.first-page__main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.first-page__main-img{
+  margin: 7.9375rem 0 0 0;
+  width: 15%;
+}
+
+.first-page__title{
+  width: 60%;
+  margin: 4.9375rem ;
+}
+.first-page__main-buttons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  button:first-child{
+    .button-style(@go-to-task);
+    &:hover{
+      background-color: @go-to-task-hover;
+    }
+    &:active{
+      background-color: @go-to-task-active;
+    }
+  }
+  button:last-child{
+  .button-style(@save);
+    &:hover{
+      background-color: @save-hover;
+    }
+    &:active{
+      background-color: @save-active;
+    }
+  }
+}

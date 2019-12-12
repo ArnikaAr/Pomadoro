@@ -1,0 +1,70 @@
+<div class="head">
+    <div class=" title">
+        <h1>daily task list
+            <button class="openModal" title="add new tasks"><span class="icon-add"></span></button>
+        </h1>
+    </div>
+    <div class="tab__main ">
+            <nav class="tab__nav navDel">
+                <ul class="tab__list">
+                    <li class="tab__item"><button  class="tab__link  active-tab select" title="link to to do page">Select
+                        All</button>
+                    </li>
+                    <li class="tab__item "><button  class="tab__link deselect" title="link to categories done page">deselect
+                        all</button>
+                    </li>
+                </ul>
+            </nav>
+        <nav class="tab__nav">
+            <ul class="tab__list">
+                <li class="tab__item toDo"><a class="tab__link" title="link to to do page">to do</a>
+                </li>
+                <li class="tab__item done"><a  class="tab__link" title="link to categories done page">done</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="addTask">
+    <div class="main__title task-added__title none">
+        <h1> Task added,
+            drag it to the top 5 in daily task list</h1>
+        <span class="icon-arrow_circle"></span>
+    </div>
+    <!--        to see the task-done__title remove class none-->
+    <div class="main__title task-done__title none">
+        <h1> Excellent,
+            all daily tasks done! :)</h1>
+    </div>
+</div>
+<ul class="task-list__main dailyList">
+    {{#each daily}}
+        {{>task_template.hbs}}
+    {{/each}}
+</ul>
+<div class="task-list__urgency-tab ">
+    <div class="urgency-tab__globalList">
+        <button class="urgency-tab__link-button" title="open global list">Global list <span class="icon-global-list-arrow-right"></span>
+        </button>
+    </div>
+    <div class="urgency-tab__main ">
+        <nav class="urgency-tab__nav">
+            <ul class="urgency-tab__list">
+                <li class="urgency-tab__item"><a href="#" class="urgency-tab__link active-tab" title="all tasks">all</a></li>
+                <li class="urgency-tab__item"><a href="#" class="urgency-tab__link" title="urgent tasks">urgent</a></li>
+                <li class="urgency-tab__item"><a href="#" class="urgency-tab__link" title="high tasks">high</a></li>
+                <li class="urgency-tab__item"><a href="#" class="urgency-tab__link" title="middle tasks">midlle</a></li>
+                <li class="urgency-tab__item"><a href="#" class="urgency-tab__link" title="low tasks">low</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="globalList">
+
+</div>
+<div class="modal">
+  
+</div>
+<div class="popUp">
+    
+</div>

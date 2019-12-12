@@ -1,0 +1,93 @@
+<div class="head">
+    <div class=" title">
+        <h1>settings</h1>
+        <h2>pomadoros settings</h2>
+    </div>
+    <div class="tab__main">
+        <nav class="tab__nav">
+            <ul class="tab__list">
+                <li class="tab__item"><a href="#/settings" class="tab__link  active-tab" title="link to to do page">Pomadoros</a>
+                </li>
+                <li class="tab__item"><a href="#/settingscategory" class="tab__link" title="link to categories done page">Categories</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="settings__main">
+    <div class="settings__main-item">
+        <div class="main-item__settings">
+            <h3 class="work__time">work time</h3>
+            <div class="settings__counter">
+                <button type="button" class="icon-minus settings__counter-btn"
+                        title="increase time by 5 minute"></button>
+                <input type="number" id="workTime" class="settings__counter-input" value="{{workTime}}" min="15"
+                       max="25"
+                       step="5" readonly>
+                <button type="button" class="icon-add settings__counter-btn"
+                        title="reduce time by 1 minute"></button>
+            </div>
+        </div>
+        <p class="main-item__title">Please select a value between 15 and 25 <strong>minutes</strong></p>
+    </div>
+    <div class="settings__main-item">
+        <div class="main-item__settings">
+            <h3 class="work__iteration">work iteration</h3>
+            <div class="settings__counter">
+                <button type="button" class="icon-minus settings__counter-btn"
+                        title="increase time by 1 minute"></button>
+                <input type="number" id="workIteration" class="settings__counter-input" value="{{workIteration}}"
+                       min="2" max="5"
+                       step="1" readonly>
+                <button type="button" class="icon-add settings__counter-btn"
+                        title="reduce time by 1 minute"></button>
+            </div>
+        </div>
+        <p class="main-item__title">Please select a value between 2 and 5 <strong> iterations</strong></p>
+    </div>
+    <div class="settings__main-item">
+        <div class="main-item__settings">
+            <h3 class="short__break">short break</h3>
+            <div class="settings__counter">
+                <button type="button" class="icon-minus settings__counter-btn"
+                        title="increase time by 1 minute"></button>
+                <input type="number" id="shortBreak" class="settings__counter-input" value="{{shortBreak}}" min="3"
+                       max="5"
+                       step="1" readonly>
+                <button type="button" class="icon-add settings__counter-btn"
+                        title="reduce time by 1 minute"></button>
+            </div>
+        </div>
+        <p class="main-item__title">Please select a value between 3 and 5 <strong>minutes</strong></p>
+    </div>
+
+    <div class="settings__main-item">
+        <div class="main-item__settings">
+            <h3 class="long__break">long break</h3>
+            <div class="settings__counter">
+                <button type="button" class="icon-minus settings__counter-btn"
+                        title="increase time by 1 minute"></button>
+                <input type="number" id="longBreak" class="settings__counter-input" value="{{longBreak}}" min="15"
+                       max="30"
+                       step="5" readonly>
+                <button type="button" class="icon-add settings__counter-btn"
+                        title="reduce time by 5 minute"></button>
+            </div>
+        </div>
+        <p class="main-item__title">Please select a value between 15 and 30 <strong> minutes</strong></p>
+    </div>
+
+</div>
+<div class="cycle">
+    <div class="cycle__head">
+        <h1 class="head__title">your cycle</h1>
+    </div>
+    <div class="pre__cycle"></div>
+    <div class="cycle__item"></div>
+    <div class="post__cycle"></div>
+
+    <div class="cycle__buttons">
+        <button href="#/tasklist" class="cycle__buttons-item" title="go to tasks">Go to tasks</button>
+        <button class="cycle__buttons-item save" title="Save settings">Save</button>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{{#if start}}
+        <button class="timer-time__btn-item timerBtn">Start</button>
+{{/if}}
+{{#if process}}
+        <button class="timer-time__btn-fail timerBtn">Fail Pomodora</button>
+        <button class="timer-time__btn-finish timerBtn">Finish Pomodora</button>
+{{/if}}
+{{#if breakFinish}}
+    <button class="timer-time__btn-start timerBtn startIteration">Start Pomodora</button>
+    <button class="timer-time__btn-finish timerBtn">Finish Task</button>
+{{/if}}
+{{#if breakFail}}
+    <button class="timer-time__btn-start timerBtn startIteration">Start Pomodora</button>
+{{/if}}

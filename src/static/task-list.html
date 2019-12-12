@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Productivity app</title>
+</head>
+
+<body>
+<header_view>
+    <div class="header_view">
+        <div class="header__wrapper">
+            <div class="header__logo">
+                <a href="#" class="hrader__logo-link" title="link to main page"><img src="../images/Logo.svg"
+                                                                                     alt=""></a>
+            </div>
+            <div class="header__menu">
+                <nav class="header__navigation">
+                    <ul class="header__navigation-list">
+
+                        <li class="header__navigation-item" data-title="delete"><a
+                                class="header__navigation-link icon-trash"
+                                href="#"
+                                title="delete task"></a>
+                        </li>
+                        <li class="header__navigation-item" data-title="go to task list"><a
+                                class="header__navigation-link icon-list active-tab" href="#"
+                                title="go to task list"> </a>
+                        </li>
+                        <li class="header__navigation-item" data-title=" go to statistic page"><a
+                                class="header__navigation-link icon-statistics"
+                                href="#" title="go to statistic page"></a></li>
+                        <li class="header__navigation-item" data-title="go to settings page"><a
+                                class="header__navigation-link icon-settings" href="#"
+                                title="go to settings page"></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header_view>
+<section class="task-list">
+    <div class="head">
+        <div class=" title">
+            <h1>daily task list <a href="#add__open-modal"><span class="icon-add"></span></a></h1>
+        </div>
+        <div class="tab__main">
+            <nav class="tab__nav">
+                <ul class="tab__list">
+                    <li class="tab__item"><button class="tab__link  active-tab" title="link to to do page">to do</button>
+                    </li>
+                    <li class="tab__item"><button  class="tab__link" title="link to categories done page">done</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <ul class="task-list__main">
+        <li class="category__work">
+            <div class="task-list__item ">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__education">
+            <div class="task-list__item category__education">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__hobby">
+            <div class="task-list__item category__hobby">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__sport">
+            <div class="task-list__item ">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__other">
+            <div class="task-list__item">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+    </ul>
+    <!--    to see the task-list__urgency-tab remove class none-->
+    <div class="task-list__urgency-tab ">
+        <div class="urgency-tab__link">
+            <button class="urgency-tab__link-button">Global list <span class="icon-global-list-arrow-right"></span>
+            </button>
+        </div>
+        <div class="urgency-tab__main ">
+            <nav class="urgency-tab__nav">
+                <ul class="urgency-tab__list">
+                    <li class="urgency-tab__item"><a href="#" class="urgency-tab__link active-tab">all</a></li>
+                    <li class="urgency-tab__item"><a href="#" class="urgency-tab__link">urgent</a></li>
+                    <li class="urgency-tab__item"><a href="#" class="urgency-tab__link">hight</a></li>
+                    <li class="urgency-tab__item"><a href="#" class="urgency-tab__link">midlle</a></li>
+                    <li class="urgency-tab__item"><a href="#" class="urgency-tab__link">low</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--    to see the task-list__main remove class none-->
+    <ul class="task-list__main work__item ">
+        <li class="category__work">
+            <div class="task-list__item ">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__work">
+            <div class="task-list__item ">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+    </ul>
+    <!--    to see the task-list__main remove class none-->
+    <ul class="task-list__main education__item ">
+        <li class="category__education">
+            <div class="task-list__item category__education">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__education">
+            <div class="task-list__item category__education">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+    </ul>
+</section>
+<!--    to see the task-list__done  remove class none-->
+<section class="task-list__done ">
+    <div class="head">
+        <div class="tab__main">
+            <nav class="tab__nav">
+                <ul class="tab__list">
+                    <li class="tab__item"><a href="#" class="tab__link" title="link to to do page">to do</a>
+                    </li>
+                    <li class="tab__item"><a href="#" class="tab__link active-tab" title="link to categories done page">done</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <ul class="task-list__main">
+        <li class="category__work ">
+            <div class="task-list__item done__task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__education">
+            <div class="task-list__item  done__task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__hobby">
+            <div class="task-list__item done__task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__sport">
+            <div class="task-list__item done__task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__other">
+            <div class="task-list__item done__task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="task-list__remove">
+    <div class=" head">
+        <div class="tab__main">
+            <nav class="tab__nav">
+                <ul class="tab__list">
+                    <li class="tab__item"><a href="#" class="tab__link  active-tab" title="link to to do page">Select
+                        All</a>
+                    </li>
+                    <li class="tab__item"><a href="#" class="tab__link" title="link to categories done page">deselect
+                        all</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="tab__main">
+            <nav class="tab__nav">
+                <ul class="tab__list">
+                    <li class="tab__item"><a href="#" class="tab__link  active-tab" title="link to to do page">to do</a>
+                    </li>
+                    <li class="tab__item"><a href="#" class="tab__link" title="link to categories done page">done</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <ul class="task-list__main">
+        <li class="category__work">
+            <div class="task-list__item deleted-task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date">
+                    <a href="#open-reset-modal">today</a>
+                </div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__education">
+            <div class="task-list__item deleted-task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__hobby">
+            <div class="task-list__item deleted-task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><<a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span class="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__sport">
+            <div class="task-list__item deleted-task ">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+        <li class="category__other">
+            <div class="task-list__item deleted-task">
+                <div class="task-list__item-mark"></div>
+                <div class="task-list__item-date"><a href="#open-reset-modal">today</a></div>
+                <div class="task-list__item-description">
+                    <h3>Lorem ipsum sit amet</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore</p>
+                </div>
+                <div class="task-list__item-edit">
+                    <span class="item-edit__item"><a class="item-edit__link icon-arrows-up" href="#"
+                                                     title="edit task"></a></span>
+                    <span calss="item-edit__item"><a class="item-edit__link icon-edit" href="#open-modal"
+                                                     title="edit task"></a></span>
+                </div>
+                <div class="task-list_item-urgency"><span class="icon-tomato"></span></div>
+            </div>
+        </li>
+    </ul>
+</section>
+<section class="modal">
+    <div class="task__modal" id="add__open-modal">
+        <div class="task__modal-item">
+            <div class="task__modal-nav">
+                <a class="icon-trash"></a>
+                <a class="icon-close close" href="#close"></a>
+                <a class="icon-check"></a>
+            </div>
+            <h2>add task</h2>
+            <ul class="task__modal-main">
+                <li class="modal-main__title">
+                    <p>title</p>
+                    <lable>
+                        <input type="text" placeholder="add title here">
+                    </lable>
+                </li>
+                <li class="modal-main__desc">
+                    <p> description </p>
+                    <lable>
+                        <input type="text" placeholder="add description here">
+                    </lable>
+                </li>
+                <li class="main-menu__category">
+                    <p>Category</p>
+                    <div class="modal__input-radio">
+                        <label class="modal__input-radio-item work"><input name="radio-category" type="radio"
+                                                                           checked><span></span>Work</label>
+                        <label class="modal__input-radio-item education"><input name="radio-category"
+                                                                                type="radio"><span></span>Education</label>
+                        <label class="modal__input-radio-item hobby"><input name="radio-category"
+                                                                            type="radio"><span></span>Hobby</label>
+                        <label class="modal__input-radio-item sport"><input name="radio-category"
+                                                                            type="radio"><span></span>Sport</label>
+                        <label class="modal__input-radio-item other"><input name="radio-category"
+                                                                            type="radio"><span></span>Other</label>
+                    </div>
+                </li>
+                <li class="modal-main__estimation">
+                    <p>ESTIMATION</p>
+                    <fieldset>
+                        <input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
+                                                                                       title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4"/><label class="full" for="star4"
+                                                                                       title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3"/><label class="full" for="star3"
+                                                                                       title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2"/><label class="full" for="star2"
+                                                                                       title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1"/><label class="full" for="star1"
+                                                                                       title="Sucks big time - 1 star"></label>
+                    </fieldset>
+                </li>
+                <li class="modal-main__priority">
+                    <p>Priority</p>
+                    <div class="modal__input-radio">
+                        <label class="modal__input-radio-item urgent"><input name="radio-priority" type="radio"
+                                                                             checked><span></span>Urgent</label>
+                        <label class="modal__input-radio-item high"><input name="radio-priority"
+                                                                           type="radio"><span></span>High</label>
+                        <label class="modal__input-radio-item middle"><input name="radio-priority"
+                                                                             type="radio"><span></span>Middle</label>
+                        <label class="modal__input-radio-item low"><input name="radio-priority"
+                                                                          type="radio"><span></span>Low</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="task__modal" id="open-modal">
+        <div class="task__modal-item">
+            <div class="task__modal-nav">
+                <a href="#open-reset-modal" class="icon-trash"></a>
+                <a class="icon-close close" href="#close"></a>
+                <a class="icon-check"></a>
+            </div>
+            <h2>edit task</h2>
+            <ul class="task__modal-main">
+                <li class="modal-main__title">
+                    <p>title</p>
+                    <lable>
+                        <input type="text" placeholder="add title here">
+                    </lable>
+                </li>
+                <li class="modal-main__desc">
+                    <p> description </p>
+                    <lable>
+                        <input type="text" placeholder="add description here">
+                    </lable>
+                </li>
+                <li class="main-menu__category">
+                    <p>Category</p>
+                    <div class="modal__input-radio">
+                        <label class="modal__input-radio-item work"><input name="radio-category" type="radio"
+                                                                           checked><span></span>Work</label>
+                        <label class="modal__input-radio-item education"><input name="radio-category"
+                                                                                type="radio"><span></span>Education</label>
+                        <label class="modal__input-radio-item hobby"><input name="radio-category"
+                                                                            type="radio"><span></span>Hobby</label>
+                        <label class="modal__input-radio-item sport"><input name="radio-category"
+                                                                            type="radio"><span></span>Sport</label>
+                        <label class="modal__input-radio-item other"><input name="radio-category"
+                                                                            type="radio"><span></span>Other</label>
+                    </div>
+                </li>
+                <li class="modal-main__deadline">
+                    <p>Deadline</p>
+                    <lable>
+                        <input type="date" placeholder="May 23, 2016">
+                    </lable>
+                </li>
+                <li class="modal-main__estimation">
+                    <p>ESTIMATION</p>
+                    <fieldset>
+                        <input type="radio" id="star5" name="rating" value="5"/><label class="full" for="star5"
+                                                                                       title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4"/><label class="full" for="star4"
+                                                                                       title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3"/><label class="full" for="star3"
+                                                                                       title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2"/><label class="full" for="star2"
+                                                                                       title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1"/><label class="full" for="star1"
+                                                                                       title="Sucks big time - 1 star"></label>
+                    </fieldset>
+                </li>
+                <li class="modal-main__priority">
+                    <p>Priority</p>
+                    <div class="modal__input-radio">
+                        <label class="modal__input-radio-item urgent"><input name="radio-priority" type="radio"
+                                                                             checked><span></span>Urgent</label>
+                        <label class="modal__input-radio-item high"><input name="radio-priority"
+                                                                           type="radio"><span></span>High</label>
+                        <label class="modal__input-radio-item middle"><input name="radio-priority"
+                                                                             type="radio"><span></span>Middle</label>
+                        <label class="modal__input-radio-item low"><input name="radio-priority"
+                                                                          type="radio"><span></span>Low</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="task__modal" id="open-reset-modal">
+        <div class="task__modal-item">
+            <div class="modal-nav">
+                <a class="icon-close close" href="#close"></a>
+            </div>
+            <div class="modal__title">
+                <h2>remove task</h2>
+                <p>Are you sure you want to remove selected task(s)?</p>
+            </div>
+            <div class="modal__buttons">
+                <button class="modal__button-cancel">Cancel</button>
+                <button class="modal__button-remove">remove</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="notification">
+    <div class="notification__succes">
+        <div class="notification__icon">
+            <span></span>
+        </div>
+        <div class="notification__title">
+            <p>Task was successfully created!</p>
+        </div>
+        <div class="notification__close">
+            <span class="icon-close"></span>
+        </div>
+    </div>
+    <div class="notification__faild">
+        <div class="notification__icon">
+            <span></span>
+        </div>
+        <div class="notification__title">
+            <p>Task was successfully created!</p>
+        </div>
+        <div class="notification__close">
+            <span class="icon-close"></span>
+        </div>
+    </div>
+    <div class="notification__warning">
+        <div class="notification__icon">
+            <span></span>
+        </div>
+        <div class="notification__title">
+            <p>Task was successfully created!</p>
+        </div>
+        <div class="notification__close">
+            <span class="icon-close"></span>
+        </div>
+    </div>
+    <div class="notification__info">
+        <div class="notification__icon">
+            <span></span>
+        </div>
+        <div class="notification__title">
+            <p>Task was successfully created!</p>
+        </div>
+        <div class="notification__close">
+            <span class="icon-close"></span>
+        </div>
+    </div>
+</section>
+<script src="/bundle.js"></script>
+</body>
+
+</html>
