@@ -38,7 +38,7 @@
     "firebase": "^6.6.2",
     "handlebars-loader": "^1.7.1",
     "highcharts": "^7.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "nodelist-foreach-polyfill": "^1.2.0"
   }
